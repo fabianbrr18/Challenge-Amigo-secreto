@@ -1,14 +1,13 @@
 :root {
-    --color-primary: #4B69FD;
-    --color-secondary: #FFF9EB;
-    --color-tertiary: #C4C4C4;
-    --color-button: #fe652b;
-    --color-button-hover: #e55720;
-    --color-text: #444444;
+    --color-primary: #6C63FF;
+    --color-secondary: #F7F7FF;
+    --color-tertiary: #E0E0E0;
+    --color-button: #FF6584;
+    --color-button-hover: #e64b6d;
+    --color-text: #2C2C2C;
     --color-white: #FFFFFF;
 }
 
-/* Estilos generales */
 * {
     margin: 0;
     padding: 0;
@@ -17,10 +16,12 @@
 
 body {
     height: 100vh;
-    background-color: var(--color-primary);
+    background: linear-gradient(135deg, var(--color-primary), #4c47d3);
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: "Inter", sans-serif;
+    transition: background 0.3s ease;
 }
 
 .main-content {
@@ -30,7 +31,6 @@ body {
     width: 100%;
 }
 
-/* Banner */
 .header-banner {
     flex: 40%;
     display: flex;
@@ -39,20 +39,6 @@ body {
     padding: 40px 0 0;
 }
 
-/* Sección de entrada */
-.input-section {
-    flex: 60%;
-    background-color: var(--color-secondary);
-    border: 1px solid #000;
-    border-radius: 64px 64px 0 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    width: 100%;
-}
-
-/* Títulos */
 .main-title {
     font-size: 48px;
     font-family: "Merriweather", serif;
@@ -61,102 +47,188 @@ body {
     color: var(--color-white);
 }
 
+.input-section {
+    flex: 60%;
+    background-color: var(--color-secondary);
+    border-radius: 64px 64px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    width: 100%;
+}
+
 .section-title {
-    font-family: "Inter", serif;
-    font-size: 36px;
+    font-size: 28px;
     font-weight: 700;
     color: var(--color-primary);
-    margin: 10px 0;
+    margin-bottom: 15px;
     text-align: center;
 }
 
-/* Contenedores de entrada y botón */
 .input-wrapper {
     display: flex;
-    justify-content: center;
     width: 100%;
     max-width: 600px;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .input-name {
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #000;
-    border-radius: 25px 0 0 25px;
-    font-size: 16px;
-}
-
-.button-container {
-    width: 300px;
-    justify-content: center;
-}
-
-/* Estilos de entrada de texto */
-.input-title {
     flex: 1;
-    padding: 10px 15px;
-    font-size: 16px;
-    border: 2px solid #333;
-    border-right: none;
+    padding: 12px;
+    border: 2px solid var(--color-primary);
     border-radius: 25px 0 0 25px;
-    font-family: "Merriweather", serif;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: 16px;
 }
 
-/* Estilos de botón */
 button {
-    padding: 15px 30px;
     font-family: "Inter", sans-serif;
     font-size: 16px;
-    border: 2px solid #000;
+    border: none;
     border-radius: 25px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .button-add {
     background-color: var(--color-tertiary);
     color: var(--color-text);
+    padding: 12px 25px;
     border-radius: 0 25px 25px 0;
 }
 
 .button-add:hover {
-    background-color: #a1a1a1;
+    background-color: #c0c0c0;
 }
 
-/* Listas */
-ul {
-    list-style-type: none;
-    color: var(--color-text);
-    font-family: "Inter", sans-serif;
-    font-size: 18px;
-    margin: 20px 0;
-}
-
-.result-list {
-    margin-top: 15px;
-    color: #05DF05;
-    font-size: 22px;
-    font-weight: bold;
+.name-list {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
     text-align: center;
 }
 
-/* Botón de sortear título */
+.name-list li {
+    background: #fff;
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 18px;
+    color: var(--color-text);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 .button-draw {
     display: flex;
     align-items: center;
-    width: 100%;
-    padding: 10px 40px;
+    padding: 12px 30px;
     color: var(--color-white);
     background-color: var(--color-button);
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .button-draw img {
-    margin-right: 40px;
+    margin-right: 15px;
 }
 
 .button-draw:hover {
     background-color: var(--color-button-hover);
+}
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: var(--color-white);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+
+.popup-content h2 {
+    margin-bottom: 15px;
+    color: var(--color-primary);
+}
+
+.popup-content p {
+    font-size: 20px;
+    font-weight: bold;
+    color: #05DF05;
+}
+
+.popup-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--color-text);
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+    color: red;
+}
+
+.toggle-dark {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--color-button);
+    color: var(--color-white);
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    padding: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s, transform 0.2s;
+    z-index: 2000;
+}
+
+.toggle-dark:hover {
+    background: var(--color-button-hover);
+    transform: scale(1.1);
+}
+
+body.dark {
+    background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+}
+
+body.dark .input-section {
+    background: #2b2b3d;
+    color: var(--color-white);
+}
+
+body.dark .section-title {
+    color: #9aa0ff;
+}
+
+body.dark .input-name {
+    background: #3a3a4d;
+    color: var(--color-white);
+    border: 2px solid #666;
+}
+
+body.dark .name-list li {
+    background: #444;
+    color: var(--color-white);
 }
